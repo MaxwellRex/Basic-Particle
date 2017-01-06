@@ -3,8 +3,8 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 
 <script>
-var accessToken = "ACCESS TOKEN";
-var deviceID = "DEVICE ID"
+var accessToken = "9687668ecddaf88b3521ef0df7243a8385e97f03";
+var deviceID = "300019000447343337373738"
 var url = "https://api.particle.io/v1/devices/" + deviceID + "/sender";
 
 function callback(data, status){
