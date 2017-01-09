@@ -129,7 +129,7 @@ function sendToSpark(myIn){
 <script>
 var accessToken = "ACCESS TOKEN";
 var deviceID = "DEVICE ID"
-var url = "https://api.particle.io/v1/devices/" + deviceID + "/sender";
+
 
 function callback(data, status){
 	if (data.return_value == 1) {
@@ -139,6 +139,11 @@ function callback(data, status){
 	{
 		alert("Could not Connect to your Device");
 	}
+}
+
+function sendMessage(){
+	message = $("#message").val();
+   	$.post(url, {params: message, access_token: accessToken}, callback);
 }
 
 
