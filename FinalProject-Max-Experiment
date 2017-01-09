@@ -126,30 +126,28 @@ function sendToSpark(myIn){
 
 
 
-Device ID:<input id="myDeviceId" name="myCoreID" type=password size=50 placeholder="78dd12345678123456"> <br>
-Get this from the core area when logged in<br>
+<script>
+var accessToken = "ACCESS TOKEN";
+var deviceID = "DEVICE ID"
+var url = "https://api.particle.io/v1/devices/" + deviceID + "/sender";
 
-<input id="myFunctionName" name="myFunction"  type=hidden size=50 value="my-main" > 
+function callback(data, status){
+	if (data.return_value == 1) {
+		alert(" Message being sent");
+	}
+	else
+	{
+		alert("Could not Connect to your Device");
+	}
+}
 
-<form name="myForm" method="POST" id="myCoolForm" ><br>
+function sendMessage(){
+	message = $("#message").val();
+   	$.post(url, {params: message, access_token: accessToken}, callback);
+}
 
-<input id="myParameter" name="params" type=text  style="display:none"     size=50 placeholder="d7-send-high"> 
+</script>
 
-Access Token:<input id="myToken" name="access_token" type=password size=50 placeholder="5622ce6bba702ef6bd3456d5ed26aaa4a28d7c9"> <br>
-Get this from the settings area when logged into <a href="http://particle.io/build">http://particle.io/build</a><br><br>
-
-
-
-
-</form>
-
-
-
-<input type="button" value="Store the Photon's Token and ID locally!" onClick="{
-   localStorage.setItem('myStoredText1', document.all.myToken.value)   
-   localStorage.setItem('myStoredText2', document.all.myDeviceId.value)
-   alert( document.all.myToken.value + ' ' +document.all.myDeviceId.value + ' \nHas been stored')
-}">
 
 
 
@@ -164,64 +162,9 @@ Get this from the settings area when logged into <a href="http://particle.io/bui
 
 
 
-<input type="button" value="d7-send-1" onClick="{
-    sendToSpark('d7-send-1')
-}">
-   
-   
-   
-<input type="button" value="d7-send-0" onClick="{
-    sendToSpark('d7-send-0')
-}"><br>
-   
-   
-<input type="button" value="d1-send-1" onClick="{
-    sendToSpark('d1-send-1')
-}">
-
-
-
-<input type="button" value="d1-send-0" onClick="{
-    sendToSpark('d1-send-0')
-}"><br>
-
-   
-   
-<input type="button" value="d4-read" onClick="{
-    sendToSpark('d4-read')
-}">
-
-
-
-<input type="button" value="a2-read" onClick="{
-    sendToSpark('a2-read')
-}"><br>
-   
- 
-   
-<input type="button" value="a5-send-70" onClick="{
-     sendToSpark('a5-send-70')
-}">
-   
-   
-   
-<input type="button" value="a5-send-0" onClick="{
-    sendToSpark('a5-send-0')
-}"><br>
-
-
-
-<input type="button" value="a4-send-0" onClick="{
-    sendToSpark('a4-send-0')
-}">
-
-
-<input type="button" value="a4-send-255" onClick="{
-    sendToSpark('a4-send-255')
-}">
-    
-Note: PWM only on A4, A5 presently<br>
-
+<h1>Message Sender</h1>
+<input id="message" value="Hello!" size="64"/>
+<input type="button" value="Send" onclick="sendMessage()" /> <br/>
 
 
 
