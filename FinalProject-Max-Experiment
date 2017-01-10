@@ -143,7 +143,7 @@ function callback(data, status){
 
 function sendMessage(){
 	message = $("#message").val();
-   	$.post(url, {params: message, access_token: accessToken}, callback);
+   	$.post({params: message, access_token: accessToken}, callback);
 }
 
 
