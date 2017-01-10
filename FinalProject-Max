@@ -26,11 +26,11 @@ function sendMessage(){
 
 
 </head>
-
+<font style="font-size:30px">
 <body>
 
-<h1>Max's Final Project <br>Message Sender</h1>
-<input id="message" value="Hello!" size="64"/>
+<h1 align=center>Max's Final Project <br>Message Sender</h1>
+<input id="message" value="Hello!" size="128"/>
 <input type="button" value="Send" onclick="sendMessage()" /> <br/>
 
 </body>
